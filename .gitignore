@@ -20,6 +20,8 @@ target/
 *.ipr
 test
 .mvn
+mvnw
+mvnw.cmd
 
 ### NetBeans ###
 /nbproject/private/
