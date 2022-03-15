@@ -22,7 +22,8 @@ class MybatisPlusDemoApplicationTests {
         user.setAge(28);
         user.setId(6L);
         user.setName("yaozhoujueqi");
-        userMapper.insert(user);
+        int insert = userMapper.insert(user);
+        System.out.println(insert);
     }
 
     @Test
