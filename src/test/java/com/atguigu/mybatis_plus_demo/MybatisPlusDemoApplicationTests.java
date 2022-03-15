@@ -11,7 +11,6 @@ import java.util.List;
 @SpringBootTest
 class MybatisPlusDemoApplicationTests {
 
-
     @Autowired
     private UserMapper userMapper;
 
