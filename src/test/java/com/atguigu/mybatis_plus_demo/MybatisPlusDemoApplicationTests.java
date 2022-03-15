@@ -5,6 +5,7 @@ import com.atguigu.mybatis_plus_demo.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.yaml.snakeyaml.events.Event;
 
 import java.util.List;
 
@@ -17,7 +18,10 @@ class MybatisPlusDemoApplicationTests {
     @Test
     void findAll() {
         List<User> userList = userMapper.selectList(null);
-        System.out.println(userList);
+        userList.forEach(user -> {
+            System.out.println(user.toString());
+        });
+        //System.out.println(userList);
     }
 
 }
