@@ -14,6 +14,7 @@ class MybatisPlusDemoApplicationTests {
 
     @Autowired
     private UserMapper userMapper;
+
     @Test
     void findAll() {
         List<User> userList = userMapper.selectList(null);
