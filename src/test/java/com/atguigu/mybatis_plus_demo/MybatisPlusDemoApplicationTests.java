@@ -16,7 +16,17 @@ class MybatisPlusDemoApplicationTests {
     private UserMapper userMapper;
 
     @Test
-    void findAll() {
+    public void addTest(){
+        User user = new User();
+        user.setEmail("3124723678@qq.com");
+        user.setAge(28);
+        user.setId(6L);
+        user.setName("yaozhoujueqi");
+        userMapper.insert(user);
+    }
+
+    @Test
+    public void findAll() {
         List<User> userList = userMapper.selectList(null);
         userList.forEach(user -> {
             System.out.println(user.toString());
