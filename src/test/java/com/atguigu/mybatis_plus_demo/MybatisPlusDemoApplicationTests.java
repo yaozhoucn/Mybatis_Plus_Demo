@@ -33,6 +33,15 @@ class MybatisPlusDemoApplicationTests {
             System.out.println(user.toString());
         });
         //System.out.println(userList);
+
+    }
+    @Test
+    public void testUpdate() {
+        User user = new User();
+        user.setId(6L);
+        user.setName("lucymary");
+        int count = userMapper.updateById(user);
+        System.out.println(count);
     }
 
 }
