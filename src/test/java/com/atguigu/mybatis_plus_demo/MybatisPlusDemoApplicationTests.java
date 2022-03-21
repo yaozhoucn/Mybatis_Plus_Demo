@@ -20,7 +20,7 @@ class MybatisPlusDemoApplicationTests {
         User user = new User();
         user.setEmail("3124723678@qq.com");
         user.setAge(28);
-        user.setId(6L);
+        //user.setId(6L);
         user.setName("yaozhoujueqi");
         int insert = userMapper.insert(user);
         System.out.println(insert);
@@ -39,7 +39,7 @@ class MybatisPlusDemoApplicationTests {
     public void testUpdate() {
         User user = new User();
         user.setId(6L);
-        user.setName("lucymary");
+        user.setName("yaozhoujueqi1111111111111");
         int count = userMapper.updateById(user);
         System.out.println(count);
     }
