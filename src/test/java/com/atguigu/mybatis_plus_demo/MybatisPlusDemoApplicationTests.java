@@ -61,6 +61,11 @@ class MybatisPlusDemoApplicationTests {
     @Test
     public void testSelect(){
         QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
+        userQueryWrapper
+                .isNull("name")
+                .ge("age", 12)
+                .isNotNull("email");
+        //int result = userMapper.delete(userQueryWrapper);
         userQueryWrapper.ge("age", 20);
         System.out.println(userMapper.selectList(userQueryWrapper));
 
