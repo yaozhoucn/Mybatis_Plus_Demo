@@ -22,6 +22,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         Date date = new Date();
         this.setFieldValByName("createTime",date,metaObject);
         this.setFieldValByName("updateTime",date,metaObject);
+        this.setFieldValByName("version",1,metaObject);
     }
 
     /**

@@ -5,8 +5,8 @@ import com.atguigu.mybatis_plus_demo.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.yaml.snakeyaml.events.Event;
 
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
@@ -21,7 +21,7 @@ class MybatisPlusDemoApplicationTests {
         user.setEmail("3124723678@qq.com");
         user.setAge(28);
         //user.setId(6L);
-        user.setName("yaozhoujueqi");
+        user.setName("yaozhjueqi22o934");
         int insert = userMapper.insert(user);
         System.out.println(insert);
     }
@@ -39,9 +39,30 @@ class MybatisPlusDemoApplicationTests {
     public void testUpdate() {
         User user = new User();
         user.setId(6L);
-        user.setName("yaozhoujueqi1111111111111");
+        user.setName("yaozhoujueqi111111111");
         int count = userMapper.updateById(user);
         System.out.println(count);
+    }
+
+    @Test
+    public void testOptimisticLocker(){
+        User user = userMapper.selectById("1505752155892572161");
+        user.setName("乐观锁测试");
+        //user.setVersion(user.getVersion()+1);
+        userMapper.updateById(user);
+    }
+
+    /**
+     * 多个id批量查询
+     */
+    @Test
+    public void testSelect1(){
+        List<User> userList = userMapper.selectBatchIds(Arrays.asList(1, 2, 3));
+        /*userList.forEach(user ->
+                        System.out.println(user.toString()));*/
+        for (User user : userList) {
+            System.out.println(user);
+        }
     }
 
 }
