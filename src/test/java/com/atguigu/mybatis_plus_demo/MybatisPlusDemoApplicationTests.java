@@ -3,11 +3,14 @@ package com.atguigu.mybatis_plus_demo;
 import com.atguigu.mybatis_plus_demo.entity.User;
 import com.atguigu.mybatis_plus_demo.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 class MybatisPlusDemoApplicationTests {
@@ -63,6 +66,19 @@ class MybatisPlusDemoApplicationTests {
         for (User user : userList) {
             System.out.println(user);
         }
+    }
+
+    /**
+     * 多个条件查询
+     */
+    @Test
+    public void testSelect2(){
+        HashMap<String, Object> map = new HashMap<>();
+        //map 是抽象的，无法实例化
+        map.put("name","Jone");
+        map.put("age","18");
+        List<User> userList = userMapper.selectByMap(map);
+        System.out.println(userList);
     }
 
 }
