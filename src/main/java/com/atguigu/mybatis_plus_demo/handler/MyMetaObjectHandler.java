@@ -23,6 +23,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         this.setFieldValByName("createTime",date,metaObject);
         this.setFieldValByName("updateTime",date,metaObject);
         this.setFieldValByName("version",1,metaObject);
+        this.setFieldValByName("delete",0,metaObject);
     }
 
     /**
@@ -32,5 +33,6 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         this.setFieldValByName("updateTime",new Date(),metaObject);
+        this.setFieldValByName("delete",1,metaObject);
     }
 }

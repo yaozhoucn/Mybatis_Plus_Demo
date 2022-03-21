@@ -20,10 +20,10 @@ class MybatisPlusDemoApplicationTests {
     @Test
     public void addTest(){
         User user = new User();
-        user.setEmail("3124723678@qq.com");
+        user.setEmail("31247erer23678@qq.com");
         user.setAge(28);
         //user.setId(6L);
-        user.setName("yaozhjueqi22o934");
+        user.setName("yaozhereqi22o934");
         int insert = userMapper.insert(user);
         System.out.println(insert);
     }
@@ -132,7 +132,7 @@ class MybatisPlusDemoApplicationTests {
      */
     @Test
     public void testLogicDelete() {
-        int result = userMapper.deleteById(1L);
+        int result = userMapper.deleteById(2L);
         System.out.println(result);
     }
 }
