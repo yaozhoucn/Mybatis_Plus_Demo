@@ -106,4 +106,33 @@ class MybatisPlusDemoApplicationTests {
         System.out.println(hasPrevious);
 
     }
+    @Test
+    public void testDeleteById(){
+        int result = userMapper.deleteById(5L);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testDeleteBatchIds() {
+        int result = userMapper.deleteBatchIds(Arrays.asList(8, 9, 10));
+        System.out.println(result);
+    }
+
+    @Test
+    public void testDeleteByMap() {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("name", "Helen");
+        map.put("age", 18);
+        int result = userMapper.deleteByMap(map);
+        System.out.println(result);
+    }
+
+    /**
+     * 逻辑删除测试
+     */
+    @Test
+    public void testLogicDelete() {
+        int result = userMapper.deleteById(1L);
+        System.out.println(result);
+    }
 }
