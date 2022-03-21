@@ -2,6 +2,7 @@ package com.atguigu.mybatis_plus_demo;
 
 import com.atguigu.mybatis_plus_demo.entity.User;
 import com.atguigu.mybatis_plus_demo.mapper.UserMapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,18 @@ class MybatisPlusDemoApplicationTests {
         //user.setVersion(user.getVersion()+1);
         userMapper.updateById(user);
     }
+    /**
+     * 复杂条件查询
+     *ge 大于、gt、le、lt、isNull、isNotNull
+     */
+    @Test
+    public void testSelect(){
+        QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
+        userQueryWrapper.ge("age", 20);
+        System.out.println(userMapper.selectList(userQueryWrapper));
 
+
+    }
     /**
      * 多个id批量查询
      */
