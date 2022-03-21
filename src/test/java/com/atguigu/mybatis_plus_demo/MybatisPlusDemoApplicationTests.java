@@ -2,15 +2,14 @@ package com.atguigu.mybatis_plus_demo;
 
 import com.atguigu.mybatis_plus_demo.entity.User;
 import com.atguigu.mybatis_plus_demo.mapper.UserMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @SpringBootTest
 class MybatisPlusDemoApplicationTests {
@@ -80,5 +79,31 @@ class MybatisPlusDemoApplicationTests {
         List<User> userList = userMapper.selectByMap(map);
         System.out.println(userList);
     }
+    /**
+     * 分页查询测试
+     */
+    @Test
+    public void testSelectPage(){
+        Page<User> page = new Page(1, 3);
+        Page<User> userList = userMapper.selectPage(page, null);
+        System.out.println(userList);
+        /*long current = page.getCurrent();
+        List<User> records = page.getRecords();
+        long pages = page.getPages();
+        long total = page.getTotal();
+        long size = page.getSize();*/
+        long pages = page.getPages(); //总页数
+        long current = page.getCurrent(); //当前页
+        List<User> records = page.getRecords(); //查询数据集合
+        long total = page.getTotal(); //总记录数
+        boolean hasNext = page.hasNext();  //下一页
+        boolean hasPrevious = page.hasPrevious(); //上一页
+        System.out.println(pages);
+        System.out.println(current);
+        System.out.println(records);
+        System.out.println(total);
+        System.out.println(hasNext);
+        System.out.println(hasPrevious);
 
+    }
 }
